@@ -113,14 +113,13 @@ ob_end_flush();
 <body>
 	<main id="main" class="bg-dark d-flex justify-content-center align-items-center vh-100">
 
-		<div class="text-center text-white">
-			<h1 id="titulo">GYM Software</h1>
+		<div class="text-left text-white py-5">
+			<h1 class="py-4" id="titulo">GYM Software</h1>
 
 			<div class="card col-lg-7 col-md-7 col-9 mx-auto py-3 shadow-lg">
 
 				<div class="card-body">
 					<p class="h5 text-info py-3">Ingrese sus credenciales</p>
-
 					<form id="login-form">
 
 						<div class="form-group">
@@ -131,7 +130,6 @@ ob_end_flush();
 						</div>
 
 						<button class="btn btn-primary col-md-12 mx-auto py-3">Iniciar</button>
-
 					</form>
 				</div>
 			</div>
