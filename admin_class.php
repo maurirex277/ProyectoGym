@@ -21,7 +21,7 @@ Class Action {
 			$qry = $this->db->query("SELECT * FROM users where username = '".$username."' and password = '".md5($password)."' ");
 			if($qry->num_rows > 0){
 				foreach ($qry->fetch_array() as $key => $value) {
-					if($key != 'passwors' && !is_numeric($key))
+					if($key != 'password' && !is_numeric($key))
 						$_SESSION['login_'.$key] = $value;
 				}
 				if($_SESSION['login_type'] != 1){
@@ -44,14 +44,14 @@ Class Action {
 		$qry = $this->db->query("SELECT * FROM users where username = '".$username."' and password = '".md5($password)."' ");
 		if($qry->num_rows > 0){
 			foreach ($qry->fetch_array() as $key => $value) {
-				if($key != 'passwors' && !is_numeric($key))
+				if($key != 'password' && !is_numeric($key))
 					$_SESSION['login_'.$key] = $value;
 			}
 			if($_SESSION['login_alumnus_id'] > 0){
 				$bio = $this->db->query("SELECT * FROM alumnus_bio where id = ".$_SESSION['login_alumnus_id']);
 				if($bio->num_rows > 0){
 					foreach ($bio->fetch_array() as $key => $value) {
-						if($key != 'passwors' && !is_numeric($key))
+						if($key != 'password' && !is_numeric($key))
 							$_SESSION['bio'][$key] = $value;
 					}
 				}
@@ -345,11 +345,18 @@ Class Action {
 			return 1;
 	}
 	function delete_member(){
-		extract($_POST);
-		$delete = $this->db->query("DELETE FROM faculty where id = ".$id);
-		if($delete){
-			return 1;
-		}
+		extract($_POST); // Extrae datos enviados por POST
+    $id = $_POST['id']; // Suponiendo que el ID del cliente se envía por POST
+
+    // Consulta SQL para eliminar el miembro de la base de datos
+    $qry = $this->db->query("DELETE FROM members WHERE id = '".$id."'");
+
+    // Verifica si la consulta se ejecutó correctamente
+    if($qry){
+        return 1; // Éxito
+    } else {
+        return 0; // Error
+    }
 	}
 	function save_schedule(){
 		extract($_POST);

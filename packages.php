@@ -31,8 +31,8 @@
 					<div class="card-footer">
 						<div class="row">
 							<div class="col-md-12">
-								<button class="btn btn-sm btn-primary col-sm-3 offset-md-3"> Guardar</button>
-								<button class="btn btn-sm btn-default col-sm-3" type="button" onclick="_reset()"> Cancelar</button>
+								<button class="btn btn-sm btn-primary col-sm-4 offset-md-2"> Guardar</button>
+								<button class="btn btn-sm btn-secondary col-sm-4" type="button" onclick="_reset()"> Cancelar</button>
 							</div>
 						</div>
 					</div>
@@ -119,14 +119,14 @@
 		    type: 'POST',
 			success:function(resp){
 				if(resp==1){
-					alert_toast("Data successfully added",'success')
+					alert_toast("Datos actualizados con exito",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)
 
 				}
 				else if(resp==2){
-					alert_toast("Data successfully updated",'success')
+					alert_toast("Datos actualizados con exito",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)

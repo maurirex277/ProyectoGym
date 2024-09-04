@@ -18,7 +18,7 @@ if(isset($_GET['id'])){
 	<p>Paquete: </i> <b><?php echo $package ?></b></p>
 	<p>Entrenador: </i> <b><?php echo !empty($trainer_arr) ?  $trainer_arr['name'] : '' ?></b></p>
 	<hr class="divider">
-	<p>cuota plan membresia: </i> <b><?php echo number_format($pamount,2).' (One-time amount only)' ?></b></p>
+	<p>cuota plan membresia: </i> <b><?php echo number_format($pamount,2).' (Monto único)' ?></b></p>
 	<p>cantidad de paquete: </i> <b><?php echo number_format($ppamount,2) ?></b></p>
 	<p>Tarifa Entrenador: </i> <b><?php echo number_format($tf) ?></b></p>
 	<p>Pagar mensualmente: </i> <b><?php echo number_format(($ppamount + $tf),2) ?></b></p>
@@ -26,12 +26,12 @@ if(isset($_GET['id'])){
 <div class="modal-footer display">
 	<div class="row">
 		<div class="col-md-12">
-			<button class="btn float-right btn-secondary" type="button" data-dismiss="modal">Close</button>
-			<button class="btn float-right btn-primary mr-2" type="button" id="payment">Payment</button>
+			<button class="btn float-right btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+			<button class="btn float-right btn-primary mr-2" type="button" id="payment">Pagos</button>
 			<?php if(strtotime(date('Y-m-d')) > strtotime($end_date)): ?>
 			<button class="btn float-right btn-primary mr-2" type="button" id="renew">Renew</button>
 			<?php endif; ?>
-			<button class="btn float-right btn-primary mr-2" type="button" id="end">End Plan</button>
+			<button class="btn float-right btn-primary mr-2" type="button" id="end">Finalizar plan</button>
 		</div>
 	</div>
 </div>
@@ -48,7 +48,7 @@ if(isset($_GET['id'])){
 </style>
 <script>
 	$('#payment').click(function(){
-		uni_modal('Payments','payment.php?rid=<?php echo $id ?>','large')
+		uni_modal('Pagos','payment.php?rid=<?php echo $id ?>','large')
 	})
 	$('#renew').click(function(){
 		start_load()
@@ -73,7 +73,7 @@ if(isset($_GET['id'])){
 			data:{rid:'<?php echo $id ?>'},
 			success:function(resp){
 				if(resp == 1){
-					alert_toast('Membership Successfully Closed','success')
+					alert_toast('Membresia eliminada con exito','success')
 					setTimeout(function(){
 						location.reload()
 					},750)

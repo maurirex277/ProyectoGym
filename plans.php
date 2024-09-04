@@ -27,8 +27,9 @@
 					<div class="card-footer">
 						<div class="row">
 							<div class="col-md-12">
-								<button class="btn btn-sm btn-primary col-sm-3 offset-md-3"> Guardar</button>
-								<button class="btn btn-sm btn-default col-sm-3" type="button" onclick="_reset()"> Cancelar</button>
+								<button class=" btn btn-sm btn-primary col-sm-4 offset-md-2"> Guardar</button>
+								<button class=" btn btn-sm btn-secondary col-sm-4" type="button" onclick="_reset()"> Limpiar</button>
+								
 							</div>
 						</div>
 					</div>
@@ -141,7 +142,7 @@
 		end_load()
 	})
 	$('.delete_plan').click(function(){
-		_conf("Are you sure to delete this plan?","delete_plan",[$(this).attr('data-id')])
+		_conf("¿Estas seguro de eliminar este plan?","delete_plan",[$(this).attr('data-id')])
 	})
 	function delete_plan($id){
 		start_load()
@@ -151,7 +152,7 @@
 			data:{id:$id},
 			success:function(resp){
 				if(resp==1){
-					alert_toast("Data successfully deleted",'success')
+					alert_toast("Los datos fueron eliminados con exito",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)

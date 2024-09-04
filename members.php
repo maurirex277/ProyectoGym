@@ -79,9 +79,9 @@
 										 
 									</td>
 									<td class="text-center">
-										<button class="btn btn-sm btn-outline-primary view_member" type="button" data-id="<?php echo $row['id'] ?>" >Ver</button>
-										<button class="btn btn-sm btn-outline-primary edit_member" type="button" data-id="<?php echo $row['id'] ?>" >Editar</button>
-										<button class="btn btn-sm btn-outline-danger delete_member" type="button" data-id="<?php echo $row['id'] ?>">Eliminar</button>
+										<button class="btn btn-sm btn-primary view_member" type="button" data-id="<?php echo $row['id'] ?>" >Ver</button>
+										<button class="btn btn-sm btn-primary edit_member" type="button" data-id="<?php echo $row['id'] ?>" >Editar</button>
+										<button class="btn btn-sm btn-danger delete_member" type="button" data-id="<?php echo $row['id'] ?>">Eliminar</button>
 									</td>
 								</tr>
 								<?php endwhile; ?>
@@ -105,7 +105,7 @@
 	}
 	img{
 		max-width:100px;
-		max-height: :150px;
+		max-height:150px;
 	}
 </style>
 <script>
@@ -120,8 +120,8 @@
 		
 	})
 	$('.edit_member').click(function(){
-		uni_modal("<i class='fa fa-edit'></i> Manage Member Details","manage_member.php?id="+$(this).attr('data-id'),'mid-large')
-		
+		uni_modal("<i class='fa fa-edit'></i>  Administrar los detalles de los miembros ","manage_member.php?id="+$(this).attr('data-id'),'mid-large')
+	
 	})
 	$('.delete_member').click(function(){
 		_conf("Are you sure to delete this topic?","delete_member",[$(this).attr('data-id')],'mid-large')
@@ -135,7 +135,7 @@
 			data:{id:$id},
 			success:function(resp){
 				if(resp==1){
-					alert_toast("Data successfully deleted",'success')
+					alert_toast("Datos eliminados con exito",'success')
 					setTimeout(function(){
 						location.reload()
 					},1500)

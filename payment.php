@@ -14,53 +14,54 @@ if(isset($_GET['rid'])){
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-6">
-			<table class="table table-bordered">
-				<thead>
-					<tr>
-						<th>Date</th>
-						<th>Amount</th>
-						<th>Remarks</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php 
-						$pcount=0;
-					$paid = $conn->query("SELECT * FROM payments where registration_id = $id ");
-					while($row= $paid->fetch_assoc()):
-						$pcount++;
-					?>
-					<tr>
-						<td><?php echo date("M d,Y",strtotime($row['date_created'])) ?></td>
-						<td class="text-right"><?php echo number_format($row['amount']) ?></td>
-						<td><?php echo $row['remarks'] ?></td>
-					</tr>
-					<?php endwhile; ?>
-				</tbody>
-			</table>
+		<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Monto</th>
+            <th>Observaciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php 
+            $pcount=0;
+        $paid = $conn->query("SELECT * FROM payments where registration_id = $id ");
+        while($row= $paid->fetch_assoc()):
+            $pcount++;
+        ?>
+        <tr>
+            <td><?php echo date("d M, Y", strtotime($row['date_created'])) ?></td>
+            <td class="text-right"><?php echo number_format($row['amount']) ?></td>
+            <td><?php echo $row['remarks'] ?></td>
+        </tr>
+        <?php endwhile; ?>
+    </tbody>
+</table>
+
 		</div>
 		<div class="col-md-6">
-			<large><b>New Payment</b></large>
+			<large><b>Nuevo Pago</b></large>
 			<form id="manage_payment">
 				<input type="hidden" name="registration_id" value="<?php echo $id ?>">
 				<div class="form-group">
-					<p>Plan Membership Fee: </i> <b class="float-right"><?php echo ($pcount<=0)? number_format($pamount,2).' (One-time amount only)': 'Paid Already' ?></b></p>
-					<p>Package Amount: </i> <b class="float-right"><?php echo number_format($ppamount,2) ?></b></p>
-					<p>Trainer Fee: </i> <b class="float-right"><?php echo number_format($tf) ?></b></p>
+					<p>Cuota de Membresía del Plan: </i> <b class="float-right"><?php echo ($pcount<=0)? number_format($pamount,2).' (Monto único)': 'Ya Pagado' ?></b></p>
+					<p>Monto del Paquete: </i> <b class="float-right"><?php echo number_format($ppamount,2) ?></b></p>
+					<p>Monto del Entrenador: </i> <b class="float-right"><?php echo number_format($tf) ?></b></p>
 				</div>
 				<hr>
 				<div class="form-group">
-					<p>Amount Payable: </i> <b class="float-right"><?php echo ($pcount<=0)? number_format(($ppamount + $tf+$pamount),2) : number_format(($ppamount + $tf),2) ?></b></p>
+					<p>Monto a pagar: </i> <b class="float-right"><?php echo ($pcount<=0)? number_format(($ppamount + $tf+$pamount),2) : number_format(($ppamount + $tf),2) ?></b></p>
 				</div>
 				<div class="form-group">
-					<label for="" class="control-label"> Amount</label>
+					<label for="" class="control-label"> Monto</label>
 					<input type="text" class="form-control" name="amount">
 				</div>
 				<div class="form-group">
-					<label for="" class="control-label"> Remarks</label>
+					<label for="" class="control-label"> Observaciones</label>
 					<textarea class="form-control" name="remarks"></textarea>
 				</div>
 				<div class="form-group">
-					<button class="btn btn-primary">Save Payment</button>
+					<button class="btn btn-primary">Guardar pago</button>
 				</div>
 			</form>
 		</div>
@@ -69,7 +70,7 @@ if(isset($_GET['rid'])){
 <div class="modal-footer display">
 	<div class="row">
 		<div class="col-md-12">
-			<button class="btn float-right btn-secondary" type="button" data-dismiss="modal">Close</button>
+			<button class="btn float-right btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
 		</div>
 	</div>
 </div>

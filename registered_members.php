@@ -87,8 +87,8 @@
 										<?php endif; ?>
 									</td>
 									<td class="text-center">
-										<button class="btn btn-sm btn-outline-primary view_member" type="button" data-id="<?php echo $row['id'] ?>" >Ver</button>
-										<button class="btn btn-sm btn-outline-danger delete_member" type="button" data-id="<?php echo $row['id'] ?>">Eliminar</button>
+										<button class="btn btn-sm btn-primary view_member" type="button" data-id="<?php echo $row['id'] ?>" >Ver</button>
+										
 									</td>
 								</tr>
 								<?php endwhile; ?>
@@ -112,7 +112,7 @@
 	}
 	img{
 		max-width:100px;
-		max-height: :150px;
+		max-height:150px;
 	}
 </style>
 <script>
@@ -123,7 +123,7 @@
 		uni_modal("<i class='fa fa-plus'></i> New Membership Plan","manage_membership.php",'')
 	})
 	$('.view_member').click(function(){
-		uni_modal("<i class='fa fa-address-card'></i> Member Plan Details","view_pdetails.php?id="+$(this).attr('data-id'),'')
+		uni_modal("<i class='fa fa-address-card'></i> Detalles de membresia","view_pdetails.php?id="+$(this).attr('data-id'),'')
 		
 	})
 	$('.edit_member').click(function(){
@@ -134,21 +134,4 @@
 		_conf("Are you sure to delete this topic?","delete_member",[$(this).attr('data-id')],'mid-large')
 	})
 
-	function delete_member($id){
-		start_load()
-		$.ajax({
-			url:'ajax.php?action=delete_member',
-			method:'POST',
-			data:{id:$id},
-			success:function(resp){
-				if(resp==1){
-					alert_toast("Data successfully deleted",'success')
-					setTimeout(function(){
-						location.reload()
-					},1500)
-
-				}
-			}
-		})
-	}
 </script>
