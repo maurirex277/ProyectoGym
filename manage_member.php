@@ -56,44 +56,7 @@ if(isset($_GET['id'])){
 				<textarea name="address" class="form-control"><?php echo isset($address) ? $address : '' ?></textarea>
 			</div>
 		</div>
-		<div class="row form-group">
-			<div class="col-md-4">
-				<label class="control-label">Plan</label>
-				<select name="plan_id" required="required" class="custom-select select2" id="">
-					<option value=""></option>
-					<?php
-						$qry = $conn->query("SELECT * FROM plans order by plan asc");
-						while($row= $qry->fetch_assoc()):
-					?>
-					<option value="<?php echo $row['id'] ?>" <?php echo isset($plan_id) && $plan_id == $row['id'] ? 'selected' : '' ?>><?php echo ucwords($row['plan']) ?></option>
-					<?php endwhile; ?>
-				</select>
-			</div>
-			<div class="col-md-4">
-				<label class="control-label">Paquete</label>
-				<select name="package_id" required="required" class="custom-select select2" id="">
-					<option value=""></option>
-					<?php
-						$qry = $conn->query("SELECT * FROM packages order by package asc");
-						while($row= $qry->fetch_assoc()):
-					?>
-					<option value="<?php echo $row['id'] ?>" <?php echo isset($package_id) && $package_id == $row['id'] ? 'selected' : '' ?>><?php echo ucwords($row['package']) ?></option>
-					<?php endwhile; ?>
-				</select>
-			</div>
-			<div class="col-md-4">
-				<label class="control-label">Entrenador</label>
-				<select name="trainer_id" class="custom-select select2" id="">
-					<option value=""></option>
-					<?php
-						$qry = $conn->query("SELECT * FROM trainers order by name asc");
-						while($row= $qry->fetch_assoc()):
-					?>
-					<option value="<?php echo $row['id'] ?>" <?php echo isset($trainer_id) && $trainer_id == $row['id'] ? 'selected' : '' ?>><?php echo ucwords($row['name']) ?></option>
-					<?php endwhile; ?>
-				</select>
-			</div>
-		</div>
+		
 	</form>
 </div>
 
