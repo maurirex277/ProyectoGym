@@ -113,10 +113,10 @@
 		$('table').dataTable()
 	})
 	$('#new_member').click(function(){
-		uni_modal("<i class='fa fa-plus'></i> New Member","manage_member.php",'mid-large')
+		uni_modal("<i class='fa fa-plus'></i> Registración de clientes","manage_member.php",'mid-large')
 	})
 	$('.view_member').click(function(){
-		uni_modal("<i class='fa fa-id-card'></i> Member Details","view_member.php?id="+$(this).attr('data-id'),'large')
+		uni_modal("<i class='fa fa-id-card'></i> Detalle del Miembro","view_member.php?id="+$(this).attr('data-id'),'large')
 		
 	})
 	$('.edit_member').click(function(){
@@ -124,7 +124,7 @@
 	
 	})
 	$('.delete_member').click(function(){
-		_conf("Are you sure to delete this topic?","delete_member",[$(this).attr('data-id')],'mid-large')
+		_conf("¿Estas seguro de eliminiar a este cliente?","delete_member",[$(this).attr('data-id')],'mid-large')
 	})
 
 	function delete_member($id){

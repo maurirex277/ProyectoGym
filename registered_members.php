@@ -120,18 +120,18 @@
 		$('table').dataTable()
 	})
 	$('#new_member').click(function(){
-		uni_modal("<i class='fa fa-plus'></i> New Membership Plan","manage_membership.php",'')
+		uni_modal("<i class='fa fa-plus'></i> Nuevo plan de membresía","manage_membership.php",'')
 	})
 	$('.view_member').click(function(){
 		uni_modal("<i class='fa fa-address-card'></i> Detalles de membresia","view_pdetails.php?id="+$(this).attr('data-id'),'')
 		
 	})
 	$('.edit_member').click(function(){
-		uni_modal("<i class='fa fa-edit'></i> Manage Member Details","manage_member.php?id="+$(this).attr('data-id'),'mid-large')
+		uni_modal("<i class='fa fa-edit'></i> Administrar detalles de miembro","manage_member.php?id="+$(this).attr('data-id'),'mid-large')
 		
 	})
 	$('.delete_member').click(function(){
-		_conf("Are you sure to delete this topic?","delete_member",[$(this).attr('data-id')],'mid-large')
+		_conf("¿Estás segura de eliminar a esta miembro?","delete_member",[$(this).attr('data-id')],'mid-large')
 	})
 
 </script>
